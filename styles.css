@@ -1,0 +1,228 @@
+.obsi-dex-view {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+}
+
+.obsi-dex-view.obsi-dex-sidebar-is-collapsed {
+  grid-template-columns: 48px minmax(0, 1fr);
+}
+
+.obsi-dex-modal {
+  height: min(760px, 90vh);
+  max-width: min(1040px, 94vw);
+  width: min(1040px, 94vw);
+}
+
+.obsi-dex-modal .modal-content {
+  height: 100%;
+  padding: 0;
+}
+
+.obsi-dex-error {
+  padding: 16px;
+}
+
+.obsi-dex-error pre {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  overflow: auto;
+  padding: 12px;
+  white-space: pre-wrap;
+}
+
+.obsi-dex-sidebar {
+  border-right: 1px solid var(--background-modifier-border);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 8px;
+  gap: 8px;
+}
+
+.obsi-dex-sidebar.is-collapsed {
+  align-items: center;
+  padding: 8px 4px;
+}
+
+.obsi-dex-sidebar-header,
+.obsi-dex-composer-actions,
+.obsi-dex-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.obsi-dex-sidebar-header {
+  justify-content: space-between;
+}
+
+.obsi-dex-sidebar.is-collapsed .obsi-dex-sidebar-header {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.obsi-dex-chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: auto;
+  min-height: 0;
+}
+
+.obsi-dex-chat-button {
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  min-height: 32px;
+  overflow: hidden;
+  padding: 6px 8px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.obsi-dex-chat-button.is-active {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.obsi-dex-main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+.obsi-dex-toolbar {
+  border-bottom: 1px solid var(--background-modifier-border);
+  justify-content: space-between;
+  padding: 8px 12px;
+}
+
+.obsi-dex-title {
+  font-size: var(--font-ui-medium);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.obsi-dex-status {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  white-space: nowrap;
+}
+
+.obsi-dex-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  overflow: auto;
+  padding: 12px;
+}
+
+.obsi-dex-message {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  max-width: min(860px, 100%);
+  padding: 10px 12px;
+}
+
+.obsi-dex-message-user {
+  align-self: flex-end;
+  background: var(--background-modifier-hover);
+}
+
+.obsi-dex-message-assistant {
+  align-self: flex-start;
+  background: var(--background-secondary);
+}
+
+.obsi-dex-message-thinking {
+  color: var(--text-muted);
+}
+
+.obsi-dex-message-role {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.obsi-dex-message-content {
+  user-select: text;
+  white-space: pre-wrap;
+}
+
+.obsi-dex-thinking-dots span {
+  animation: obsi-dex-dot-pulse 1.2s infinite ease-in-out;
+  display: inline-block;
+  opacity: 0.25;
+}
+
+.obsi-dex-thinking-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.obsi-dex-thinking-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes obsi-dex-dot-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+.obsi-dex-composer {
+  border-top: 1px solid var(--background-modifier-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.obsi-dex-input {
+  min-height: 92px;
+  resize: vertical;
+  width: 100%;
+}
+
+.obsi-dex-option {
+  align-items: center;
+  color: var(--text-muted);
+  display: flex;
+  font-size: var(--font-ui-smaller);
+  gap: 6px;
+}
+
+@media (max-width: 700px) {
+  .obsi-dex-view {
+    grid-template-columns: 1fr;
+  }
+
+  .obsi-dex-view.obsi-dex-sidebar-is-collapsed {
+    grid-template-columns: 1fr;
+  }
+
+  .obsi-dex-sidebar {
+    border-bottom: 1px solid var(--background-modifier-border);
+    border-right: 0;
+    max-height: 160px;
+  }
+}

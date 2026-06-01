@@ -1,0 +1,10 @@
+{
+  "id": "obsi-dex",
+  "name": "Obsi-Dex",
+  "version": "0.1.8",
+  "minAppVersion": "1.5.0",
+  "description": "Chat with the local Codex CLI from Obsidian and let it work in your vault.",
+  "author": "",
+  "authorUrl": "",
+  "isDesktopOnly": true
+}
