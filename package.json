@@ -1,6 +1,6 @@
 {
   "name": "obsi-dex",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Obsidian plugin that chats with the local Codex CLI inside your vault.",
   "main": "main.js",
   "scripts": {

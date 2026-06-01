@@ -362,12 +362,16 @@ export default class ObsiDexPlugin extends Plugin {
       "exec",
       "--color",
       "never",
-      "--skip-git-repo-check",
-      "-s",
-      this.settings.sandboxMode,
-      "-o",
-      outputPath
+      "--skip-git-repo-check"
     ];
+
+    if (this.settings.sandboxMode === "danger-full-access") {
+      args.push("--dangerously-bypass-approvals-and-sandbox");
+    } else {
+      args.push("-s", this.settings.sandboxMode);
+    }
+
+    args.push("-o", outputPath);
 
     if (this.settings.model.trim()) {
       args.push("-m", this.settings.model.trim());
@@ -953,7 +957,7 @@ class ObsiDexSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("Sandbox")
-      .setDesc("Controls how much filesystem access Codex has.")
+      .setDesc("Controls Codex filesystem access. On Windows, danger-full-access bypasses Codex's sandbox and should be used only with trusted prompts.")
       .addDropdown((dropdown) => dropdown
         .addOption("read-only", "read-only")
         .addOption("workspace-write", "workspace-write")
